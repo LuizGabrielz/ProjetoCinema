@@ -8,5 +8,7 @@ namespace ProjetoCinema.Core.Models
         public DateTime DataVenda { get; set; }
         public int Preco { get; set; }
 
+        public Funcionario Funcionario { get; set; }
+        public Filme Filme { get; set; }
     }
-}
+} 

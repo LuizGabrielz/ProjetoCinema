@@ -20,3 +20,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.magia {
+  border-radius: 50%;
+  float: right;
+}
+
+img {
+  width: 250px;
+  height:400px;
+}
+
+.terror {
+  border-radius: 80%;
+  float: left;
+}
+
+.botao {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  margin: auto;
+  float: right;
+}
+
+.formulario-container {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  margin: auto;
+}

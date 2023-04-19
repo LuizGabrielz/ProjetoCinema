@@ -10,5 +10,8 @@ namespace ProjetoCinema.Core.Models
         public int Cep { get; set; }
         public string Cidade { get; set; }
         public string Estado { get; set; }
+
+        public Cliente Cliente { get; set; }
+        
     }
 } 

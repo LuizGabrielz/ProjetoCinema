@@ -2,9 +2,11 @@ namespace ProjetoCinema.Core.Models
 {
     public class Funcionario
     {
-        public int Id { get; set;} 
+        public int Id { get; set; } 
         public string Nome { get; set; }
         public DateTime DataContratado { get; set; }
         public int Salario { get; set; }
+        
+        public IEnumerable<Venda> Vendas { get; set; }
     }
-}
+} 

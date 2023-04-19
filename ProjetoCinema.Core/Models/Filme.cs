@@ -5,6 +5,11 @@ namespace ProjetoCinema.Core.Models
         public int Id { get; set; }
         public int IdCategoria { get; set; }
         public string Nome { get; set; }
-        public string sinopse { get; set; }
+        public string Sinopse { get; set; }
+    
+        public Categoria Categoria { get; set; }
+    
+        public IEnumerable<Venda> Vendas { get; set; }
+        public IEnumerable<Pedido> Pedidos { get; set;}
     }
 }

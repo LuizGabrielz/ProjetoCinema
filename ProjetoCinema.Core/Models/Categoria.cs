@@ -4,5 +4,8 @@ namespace ProjetoCinema.Core.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+    
+        public IEnumerable<Filme> Filme { get; set; }
     }
 }
+ 
