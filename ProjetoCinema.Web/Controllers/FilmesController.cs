@@ -1,13 +1,16 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using ProjetoCinema.Web.Models;
+using ProjetoCinema.Data;
 
 namespace ProjetoCinema.Web.Controllers;
 
 public class FilmesController : Controller
 {
-    public IActionResult Index()
+    private readonly ApplicationDbContext _dbContext;
+     private readonly IFilmeRepository _filmeRepository;
+
+    public FilmesController(ApplicationDbContext dbContext)
     {
-        return View();
+        _dbContext = dbContext;
+         
     }
-}
+    public IActionResult Index() => View(_dbContext.Filmes.ToList()); 
+} 

@@ -1,8 +1,10 @@
 using ProjetoCinema.Core.Settings;
 using ProjetoCinema.Data;
+using ProjetoCinema.Data.Repositories;
+using Core.Interfaces.Repositories;
 
-namespace Krita.Web.Configurations
-{
+namespace ProjetoCinema.Web.Configurations
+{ 
     public static class DependencyInjection
     {
         public static void AddDependencies(this IServiceCollection services, AppSettings appSettings)
@@ -12,6 +14,9 @@ namespace Krita.Web.Configurations
             services.AddControllersWithViews();
 
             services.AddScoped<ApplicationDbContext>();
+
+            services.AddScoped<IFilmeRepository, FilmeRepository>();
         }
     }
-}
+}       
+ 

@@ -1,10 +1,10 @@
-namespace ProjetoCinema.Data.Configuration.Application
-{
+namespace ProjetoCinema.Data.Configurations.Application
+{ 
     public class VendaConfiguration : IEntityTypeConfiguration<Venda>
     {
         public void Configure(EntityTypeBuilder<Venda> builder)
         {
-            builder.ToTable("venda", "dbo");
+            builder.ToTable("venda", "public");
 
             builder.HasKey(x => x.Id).HasName("pk_venda");
 

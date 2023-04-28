@@ -1,10 +1,10 @@
-namespace ProjetoCinema.Data.Configuration.Application
+namespace ProjetoCinema.Data.Configurations.Application
 {
     public class FuncionarioConfiguration : IEntityTypeConfiguration<Funcionario>
     {
         public void Configure(EntityTypeBuilder<Funcionario> builder)
         {
-            builder.ToTable("funcionario", "dbo");
+            builder.ToTable("funcionario", "public");
 
             builder.HasKey(x => x.Id).HasName("pk_funcionario");
 
@@ -12,7 +12,7 @@ namespace ProjetoCinema.Data.Configuration.Application
             builder.Property(x => x.DataContratado).HasColumnName("datacontratado");
             builder.Property(x => x.Salario).HasColumnName("salario");
             
-            builder.HasMany(x => x.Vendas).WithOne(x => x.Funcionario).HasForeignKey(x => x.IdFuncionario);
+            builder.HasMany(x => x.Vendas).WithOne(x => x.Funcionario);
         }
     }
 }

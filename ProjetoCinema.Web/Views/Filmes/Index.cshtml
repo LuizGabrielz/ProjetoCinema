@@ -1,21 +1,23 @@
-@{
-    ViewData["Title"] = "Home Page";
-} 
-
-<div class="text-center">
-    <h1 class="display-4">Netflix</h1> 
-</div>
-
-<div class="text-center">
-    <h1 class="Frase-central">Filmes Favoritos Da Galera</h1>
-</div>
-
-<div class ="container">
-    <div class ="magia">
-    <img src="~/images/unnamed.png" alt="foto-de-filmes">
-    </div>
-    <div class= "terror">
-<img src="~/images/Halloween.jpg" alt="foto-de-filmes">
-    </div>
-</div>
- 
+@model IEnumerable<Filme>
+  
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">IdCategoria</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Sinopse</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+    {
+      <tr>
+        <th scope="row">@item.Id</th>
+        <th scope="row">@item.IdCategoria</th>
+        <th scope="row">@item.Nome</th>
+        <th scope="row">@item.Sinopse</th>
+      </tr>
+    }
+  </tbody>
+</table>

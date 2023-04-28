@@ -1,10 +1,10 @@
-namespace ProjetoCinema.Data.Configuration.Application
+namespace ProjetoCinema.Data.Configurations.Application
 {
     public class PedidoConfiguration : IEntityTypeConfiguration<Pedido>
     {
         public void Configure(EntityTypeBuilder<Pedido> builder)
         {
-            builder.ToTable("pedido", "dbo");
+            builder.ToTable("pedido", "public");
 
             builder.HasKey(x => x.Id).HasName("pk_pedido");
 
@@ -16,7 +16,6 @@ namespace ProjetoCinema.Data.Configuration.Application
             builder.Property(x => x.Preco).HasColumnName("preco");
         
             builder.HasOne(x => x.Cliente).WithMany(x => x.Pedidos).HasForeignKey(x => x.IdCliente);
-            builder.HasOne(x => x.Filme).WithMany(x => x.Pedidos).HasForeignKey(x => x.IdFilme);
         }  
     }
 }

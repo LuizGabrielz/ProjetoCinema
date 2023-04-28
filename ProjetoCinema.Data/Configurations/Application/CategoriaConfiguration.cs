@@ -1,17 +1,17 @@
-namespace ProjetoCinema.Data.Configuration.Application
+namespace ProjetoCinema.Data.Configurations.Application
 {
     public class CategoriaConfiguration : IEntityTypeConfiguration<Categoria>
     {
         public void Configure(EntityTypeBuilder<Categoria> builder)
         {
-            builder.ToTable("categoria", "dbo");
+            builder.ToTable("categoria", "public");
 
             builder.HasKey(x => x.Id).HasName("pk_categoria");
 
             builder.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName("id");
             builder.Property(x => x.Nome).HasColumnName("nome");
 
-            builder.HasMany(x => x.Filme).WithOne(x => x.Categoria).HasForeignKey(x => x.Categoria.Id);
+            builder.HasMany(x => x.Filmes).WithOne(x => x.Categoria);
         }
     }
 }

@@ -21,7 +21,7 @@ body {
   margin-bottom: 60px;
   background: #e46969
 }
-
+ 
 .magia {
   border-radius: 50%;
   float: right;
@@ -80,8 +80,8 @@ label, input, button {
   border-radius: 10px;
 }
 
-.frase-inscrever {
-  position: relative;
-  top: 0%;
-  
+.btn {
+  width: 100px;
+  float: right;
 }
+
