@@ -13,8 +13,6 @@ namespace ProjetoCinema.Data.Configurations.Application
             builder.Property(x => x.IdFilme).HasColumnName("id_filme");
             builder.Property(x => x.DataVenda).HasColumnName("data_venda");
             builder.Property(x => x.Preco).HasColumnName("preco");
-        
-            builder.HasOne(x => x.Funcionario).WithMany(x => x.Vendas).HasForeignKey(x => x.IdFuncionario);
             builder.HasOne(x => x.Filme).WithMany(x => x.Vendas).HasForeignKey(x => x.IdFilme);
         }
     }

@@ -14,3 +14,4 @@ public class FilmesController : Controller
     }
     public IActionResult Index() => View(_dbContext.Filmes.ToList()); 
 } 
+ 

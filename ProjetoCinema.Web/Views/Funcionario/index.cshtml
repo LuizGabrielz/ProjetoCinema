@@ -1,0 +1,40 @@
+@model Funcionario
+
+
+<form id="funcionarioForm">
+<div class="container-form">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Nome Funcionario</label>
+    <input type="text" class="form-control" asp-for="Nome">
+  </div>
+    <input type="hidden" asp-for="DataContratado">
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Salario</label>
+    <input type="text" class="form-control" asp-for="Salario">
+  </div>
+  <div class="col-md-4">
+  </div>
+  <div class="col-12">
+    </div>
+  </div>
+  <div class="col-3">
+    <button class="buttons" onclick="funcionario.listar()">Listar</button>
+    <button class="buttons" onclick="funcionario.cadastrar()">Cadastrar</button>
+  </div>
+</div>
+</form>
+ 
+<div class="container-editar"></div>
+<div class="container-listar"></div>
+<div class="container-cadastrar"></div>
+
+<script src="~/js/pages/funcionario.js" asp-append-version="true"></script>
+<script>
+  
+  funcionario.init({
+    urls: {
+      cadastrar: '@Url.Action("cadastrar", "funcionario")',
+      listar: '@Url.Action("listar", "funcionario")',
+        }
+  });
+</script>

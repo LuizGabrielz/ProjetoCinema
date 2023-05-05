@@ -8,5 +8,6 @@ namespace ProjetoCinema.Data
         }
 
         public DbSet<Filme> Filmes { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
     }
 }

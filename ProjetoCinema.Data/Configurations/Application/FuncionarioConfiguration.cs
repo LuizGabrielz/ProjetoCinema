@@ -9,10 +9,9 @@ namespace ProjetoCinema.Data.Configurations.Application
             builder.HasKey(x => x.Id).HasName("pk_funcionario");
 
             builder.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName("id");
-            builder.Property(x => x.DataContratado).HasColumnName("datacontratado");
+            builder.Property(x => x.Nome).HasColumnName("nome");
+            builder.Property(x => x.DataContratado).HasColumnName("data_contratado");
             builder.Property(x => x.Salario).HasColumnName("salario");
-            
-            builder.HasMany(x => x.Vendas).WithOne(x => x.Funcionario);
         }
     }
 }

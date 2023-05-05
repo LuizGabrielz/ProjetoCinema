@@ -27,7 +27,7 @@
                         </li>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Cadastrar" asp-action="Index">Cadastrar</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Funcionario" asp-action="Index">Cadastrar Funcionario</a> 
                         </li>
                     </ul>
                 </div>
@@ -45,9 +45,9 @@
             &copy; 2023 - ProjetoCinema <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    @await RenderSectionAsync("Scripts", required: false)
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

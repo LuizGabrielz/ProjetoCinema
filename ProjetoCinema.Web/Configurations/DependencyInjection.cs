@@ -16,7 +16,7 @@ namespace ProjetoCinema.Web.Configurations
             services.AddScoped<ApplicationDbContext>();
 
             services.AddScoped<IFilmeRepository, FilmeRepository>();
+            services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
         }
     }
 }       
- 
