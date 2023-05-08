@@ -8,3 +8,4 @@ namespace ProjetoCinema.Core.Models
         public int Salario { get; set; }      
     }
 } 
+ 

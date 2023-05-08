@@ -25,5 +25,31 @@ namespace ProjetoCinema.Web.Controllers
             await _funcionarioRepository.CadastrarFuncionario(funcionario);
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost("excluir")]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            await _funcionarioRepository.ExcluirFuncionario(id);
+            return RedirectToAction(nameof(Index));
+        }
+        [HttpGet("editar")]
+        public async Task<IActionResult> Editar(int id)
+        {
+            var funcionarioSelecionado = await _funcionarioRepository.BuscarFuncionarioPorId(id);
+
+            return View("_editar", funcionarioSelecionado);
+        }
+       
+       [HttpPost("editar")]
+       public async Task<IActionResult> EditarFuncionario(Funcionario funcionario)
+       {
+            await _funcionarioRepository.EditarFuncionario(new Funcionario { 
+                Id = funcionario.Id,
+                Nome = funcionario.Nome,
+                DataContratado = DateTime.Now.ToUniversalTime(),
+                Salario = funcionario.Salario
+            });
+            return Ok();
+       }
     }
 }

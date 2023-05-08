@@ -1,0 +1,19 @@
+@model Funcionario
+
+@{
+    Layout = null;
+}
+<form id="form-editar">
+    <div>
+        <div class="mb-3">
+            <input placeholder="Id" asp-for="@Model.Id" type="hidden"></input>
+        </div>
+        <div class="mb-3">
+         <input placeholder="Nome Funcionario" asp-for="@Model.Nome" type="text" class="form-control"></input>
+        </div> 
+        <div class="mb-3">
+         <input placeholder="Salario" asp-for="@Model.Salario" type="number" class="form-control"></input>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="funcionario.editar()">Enviar</button>
+    </div>
+</form>
