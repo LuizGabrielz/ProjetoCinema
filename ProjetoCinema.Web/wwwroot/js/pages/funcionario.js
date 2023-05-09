@@ -46,7 +46,7 @@ var funcionario = (function () {
       });
   };
 
-  var viewEditar = function (id) {
+   var viewEditar = function (id) {
     $.get(configs.urls.viewEditar, { id: id })
       .done(function (html) {
         $(".container-listar").hide();
