@@ -4,7 +4,7 @@ namespace ProjetoCinema.Data.Configurations.Application
     {
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {
-            builder.ToTable("cliente", "public");
+            builder.ToTable("cliente", "dbo");
 
             builder.HasKey(x => x.Id).HasName("pk_cliente");
 

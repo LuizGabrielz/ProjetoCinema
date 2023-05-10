@@ -10,7 +10,7 @@
     <input type="hidden" asp-for="DataContratado">
   <div class="col-md-6">
     <label for="inputPassword4" class="form-label">Salario</label>
-    <input type="number" class="form-control" asp-for="Salario">
+    <input type="number" min="1" step="any" class="form-control" asp-for="Salario">
   </div>
   <div class="col-md-4">
   </div>
@@ -30,7 +30,7 @@
 
 <script src="~/js/pages/funcionario.js" asp-append-version="true"></script>
 <script>
-  
+
   funcionario.init({
     urls: {
       cadastrar: '@Url.Action("cadastrar", "funcionario")',

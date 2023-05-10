@@ -8,9 +8,12 @@ namespace ProjetoCinema.Data.Repositories
             _dbContext = dbContext;
         }
         
-        public async Task<IEnumerable<Funcionario>> BuscarFuncionarios()
+        public async Task<IEnumerable<Funcionario>> BuscarFuncionarios(Funcionario model)
         {
-            return await _dbContext.Funcionarios.ToListAsync();
+            if (string.IsNullOrEmpty(model.Nome))
+                return await _dbContext.Funcionarios.ToListAsync();
+            else
+                return await _dbContext.Funcionarios.Where(x => x.Nome == model.Nome).ToListAsync();
         }
 
         public async Task<Funcionario> BuscarFuncionarioPorId(int id)

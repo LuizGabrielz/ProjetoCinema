@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoCinema.Web.Models;
+using ProjetoCinema.Web.ViewModels;
 
 namespace ProjetoCinema.Web.Controllers;
 

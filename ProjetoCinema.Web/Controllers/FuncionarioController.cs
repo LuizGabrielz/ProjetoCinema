@@ -1,22 +1,26 @@
+using ProjetoCinema.Core.Helpers;
+
 namespace ProjetoCinema.Web.Controllers
 {
     [Route("funcionario")]
     public class FuncionarioController : Controller
     {
         private readonly IFuncionarioRepository _funcionarioRepository;
-        public FuncionarioController(IFuncionarioRepository funcionarioRepository)
+        private readonly Notification _notification;
+        public FuncionarioController(IFuncionarioRepository funcionarioRepository, Notification notification)
         {
             _funcionarioRepository = funcionarioRepository;
+            _notification = notification;
         }
         public ActionResult Index() => View();
 
-        [HttpGet("listar")]
-        public async Task<IActionResult> Listar() => View("_listar", await _funcionarioRepository.BuscarFuncionarios());
-    
+        [HttpPost("listar")]
+        public async Task<IActionResult> Buscar(Funcionario model) => View("_listar", await _funcionarioRepository.BuscarFuncionarios(model));
+
         [HttpPost("cadastrar")]
         public async Task<IActionResult> Cadastrar(Funcionario model)
-        {
-            var funcionario = new Funcionario{
+        {   
+           var funcionario = new Funcionario{
                 Nome = model.Nome,
                 DataContratado = DateTime.Now.ToUniversalTime(),
                 Salario = model.Salario

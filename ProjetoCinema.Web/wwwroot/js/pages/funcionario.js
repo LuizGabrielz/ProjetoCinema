@@ -18,7 +18,7 @@ var funcionario = (function () {
     var model = $("#funcionarioForm").serializeObject();
 
     $.post(configs.urls.cadastrar, model).done(function () {
-      location.href = configs.urls.listar;
+      listar();
     });
   };
 
@@ -33,6 +33,7 @@ var funcionario = (function () {
   };
 
   var editar = function () {
+    location.reload();
     var model = $("#form-editar").serializeObject();
     $.post(configs.urls.editar, model)
       .done(() => {
@@ -59,8 +60,8 @@ var funcionario = (function () {
   };
 
   var listar = function () {
-    console.log(configs.urls.listar);
-    $.get(configs.urls.listar)
+    var model = $("#funcionarioForm").serializeObject();
+    $.post(configs.urls.listar, model)
       .done(function (html) {
         $(".container-listar").html(html);
         $(".container-listar").show();
