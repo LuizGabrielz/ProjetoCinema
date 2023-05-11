@@ -31,7 +31,7 @@ namespace ProjetoCinema.Web.Controllers
         {  
 
             if (model == null)
-                return BadRequest("funcionario não cadastrado");
+                return BadRequest("nome do funcionario é obrigatório");
        
             if (!model.IsValid(_notification))
                 return BadRequest(_notification.Get());

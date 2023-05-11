@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="col-3">
-    <button class="buttons" onclick="funcionario.listar()">Listar</button>
+    <button class="buttons" onclick="funcionario.listar()">Listar/Buscar</button>
     <button class="buttons" onclick="funcionario.cadastrar()">Cadastrar</button>
   </div>
 </div>
@@ -34,6 +34,7 @@
   funcionario.init({
     urls: {
       cadastrar: '@Url.Action("cadastrar", "funcionario")',
+      viewCadastrar: '@Url.Action("viewCadastrar", "funcionario")',
       listar: '@Url.Action("listar", "funcionario")',
       excluir: '@Url.Action("excluir", "funcionario")',
       viewEditar: '@Url.Action("editar", "funcionario")',
