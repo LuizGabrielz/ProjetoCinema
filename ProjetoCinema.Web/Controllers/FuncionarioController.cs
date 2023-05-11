@@ -16,7 +16,15 @@ namespace ProjetoCinema.Web.Controllers
         public ActionResult Index() => View();
 
         [HttpPost("listar")]
-        public async Task<IActionResult> Buscar(Funcionario model) => View("_listar", await _funcionarioRepository.BuscarFuncionarios(model));
+        public async Task<IActionResult> Buscar(Funcionario model) 
+        {
+            var resultado = await _funcionarioRepository.BuscarFuncionarios(model);
+            
+            if(resultado.Count() == 0)
+                return BadRequest("funcionario não cadastrado");
+            
+            return View("_listar", resultado);
+        } 
 
         [HttpPost("cadastrar")]
         public async Task<IActionResult> Cadastrar(Funcionario model)

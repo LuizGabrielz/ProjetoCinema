@@ -5,3 +5,4 @@ global using ProjetoCinema.Web.Configurations;
 global using ProjetoCinema.Core.Settings;
 global using System.Linq;
 global using ProjetoCinema.Core.Models;
+

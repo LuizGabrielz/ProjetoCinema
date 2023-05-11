@@ -2,7 +2,6 @@ var funcionario = (function () {
   var configs = {
     urls: {
       cadastrar: "",
-      viewCadastrar: "",
       viewEditar: "",
       editar: "",
       listar: "",
@@ -18,19 +17,14 @@ var funcionario = (function () {
     var model = $("#funcionarioForm").serializeObject();
 
     $.post(configs.urls.cadastrar, model).done(function () {
-      listar();
+     listar();
+    })
+    .fail(function (msg) {
+      site.toast.error(msg);
+      return;
     });
   };
 
-  var viewCadastrar = function () {
-    $.get(configs.urls.viewCadastrar)
-      .done(function (html) {
-        $(".container-lista").hide();
-        $(".container-cadastrar").html(html);
-        $(".container-cadastrar").show();
-      })
-      .fail(function () {});
-  };
 
   var editar = function () {
     location.reload();
@@ -65,8 +59,9 @@ var funcionario = (function () {
       .done(function (html) {
         $(".container-listar").html(html);
         $(".container-listar").show();
-      })
-      .fail(function () {});
+      }).fail(function (msg) {
+        site.toast.error(msg);
+    })
   };
 
   var excluir = function (id) {
@@ -82,7 +77,6 @@ var funcionario = (function () {
     init: init,
     listar: listar,
     cadastrar: cadastrar,
-    viewCadastrar: viewCadastrar,
     viewEditar: viewEditar,
     editar: editar,
     excluir: excluir,

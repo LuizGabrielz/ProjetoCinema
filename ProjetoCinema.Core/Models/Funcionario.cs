@@ -14,7 +14,7 @@ namespace ProjetoCinema.Core.Models
             if(string.IsNullOrEmpty(Nome))
             notification.Add("Nome do funcionario é obrigatório");
 
-            if(Salario == null || Salario == 0)
+            if(Salario == default || Salario == 0)
             notification.Add("Salario do funcionario é obrigatório");
 
             return !notification.Any();
