@@ -7,6 +7,7 @@ namespace ProjetoCinema.Web.Controllers
     {
         private readonly IFuncionarioRepository _funcionarioRepository;
         private readonly Notification _notification;
+       
         public FuncionarioController(IFuncionarioRepository funcionarioRepository, Notification notification)
         {
             _funcionarioRepository = funcionarioRepository;
@@ -19,7 +20,14 @@ namespace ProjetoCinema.Web.Controllers
 
         [HttpPost("cadastrar")]
         public async Task<IActionResult> Cadastrar(Funcionario model)
-        {   
+        {  
+
+            if (model == null)
+                return BadRequest("funcionario não cadastrado");
+       
+            if (!model.IsValid(_notification))
+                return BadRequest(_notification.Get());
+
            var funcionario = new Funcionario{
                 Nome = model.Nome,
                 DataContratado = DateTime.Now.ToUniversalTime(),
