@@ -5,7 +5,6 @@ namespace ProjetoCinema.Web.Controllers;
 public class FilmesController : Controller
 {
     private readonly ApplicationDbContext _dbContext;
-     private readonly IFilmeRepository _filmeRepository;
 
     public FilmesController(ApplicationDbContext dbContext)
     {

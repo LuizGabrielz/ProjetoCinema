@@ -1,8 +1,6 @@
-using ProjetoCinema.Core.Settings;
-using ProjetoCinema.Data;
-using ProjetoCinema.Data.Repositories;
-using Core.Interfaces.Repositories;
-using ProjetoCinema.Core.Helpers;
+
+
+using ProjetoCinema.Core.Services;
 
 namespace ProjetoCinema.Web.Configurations
 { 
@@ -17,8 +15,9 @@ namespace ProjetoCinema.Web.Configurations
             services.AddScoped<ApplicationDbContext>();
 
             services.AddScoped<IFilmeRepository, FilmeRepository>();
-            
             services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+            
+            services.AddScoped<IFuncionarioService, FuncionarioService>();
            
             services.AddScoped<Notification>();
         }

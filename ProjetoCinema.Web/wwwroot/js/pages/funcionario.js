@@ -14,6 +14,7 @@ var funcionario = (function () {
     configs = $configs;
   };
 
+
   var cadastrar = () => {
     var model = $("#funcionarioForm").serializeObject();
 
@@ -22,11 +23,10 @@ var funcionario = (function () {
     })
     .fail(function (msg) {
       site.toast.error(msg);
-      return;
     });
   };
-  
-  var viewCadastrar = function () {
+
+    var viewCadastrar = function () {
     $.get(configs.urls.viewCadastrar)
       .done(function (html) {
         $(".container-lista").hide();
@@ -35,7 +35,7 @@ var funcionario = (function () {
       })
       .fail(function () {});
   }; 
-  
+
   var editar = function () {
     location.reload();
     var model = $("#form-editar").serializeObject();

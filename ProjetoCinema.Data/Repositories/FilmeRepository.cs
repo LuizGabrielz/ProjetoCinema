@@ -1,6 +1,6 @@
 namespace ProjetoCinema.Data.Repositories
 {
-    public class FilmeRepository : IFilmeRepository 
+    public class FilmeRepository : IFilmeRepository
     {
         private readonly ApplicationDbContext _dbContext;
 

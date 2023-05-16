@@ -1,4 +1,4 @@
-using ProjetoCinema.Core.Helpers;
+
 
 namespace ProjetoCinema.Web.Controllers
 {
@@ -6,11 +6,13 @@ namespace ProjetoCinema.Web.Controllers
     public class FuncionarioController : Controller
     {
         private readonly IFuncionarioRepository _funcionarioRepository;
+        private readonly IFuncionarioService _funcionarioService;
         private readonly Notification _notification;
        
-        public FuncionarioController(IFuncionarioRepository funcionarioRepository, Notification notification)
+        public FuncionarioController(IFuncionarioRepository funcionarioRepository, IFuncionarioService funcionarioService, Notification notification)
         {
             _funcionarioRepository = funcionarioRepository;
+            _funcionarioService = funcionarioService;
             _notification = notification;
         }
         public ActionResult Index() => View();
@@ -25,11 +27,10 @@ namespace ProjetoCinema.Web.Controllers
             
             return View("_listar", resultado);
         } 
-
+    
         [HttpPost("cadastrar")]
         public async Task<IActionResult> Cadastrar(Funcionario model)
         {  
-
             if (model == null)
                 return BadRequest("nome do funcionario é obrigatório");
        
@@ -42,24 +43,29 @@ namespace ProjetoCinema.Web.Controllers
                 Salario = model.Salario
             };
 
-            await _funcionarioRepository.CadastrarFuncionario(funcionario);
+             await _funcionarioService.ReceberDados(funcionario);
+
+            if (_notification.Any())
+                return BadRequest(string.Join(", ", _notification.Get()));
+
             return RedirectToAction(nameof(Index));
         }
-
+    
         [HttpPost("excluir")]
         public async Task<IActionResult> Excluir(int id)
         {
             await _funcionarioRepository.ExcluirFuncionario(id);
             return RedirectToAction(nameof(Index));
         }
-        [HttpGet("editar")]
+
+         [HttpGet("editar")]
         public async Task<IActionResult> Editar(int id)
         {
             var funcionarioSelecionado = await _funcionarioRepository.BuscarFuncionarioPorId(id);
 
             return View("_editar", funcionarioSelecionado);
         }
-       
+
        [HttpPost("editar")]
        public async Task<IActionResult> EditarFuncionario(Funcionario funcionario)
        {

@@ -1,6 +1,4 @@
-using ProjetoCinema.Core.Models;
-
-namespace Core.Interfaces.Repositories;
+namespace ProjetoCinema.Core.Interfaces;
 
 public interface IFilmeRepository
 {
